@@ -4,10 +4,7 @@ class Meeting extends CI_Controller {
 	{
 		$this->load->view('index');
 	}
-	public function view()
-	{
-		$this->load->view('view');
-	}
+
 	public function other()
 	{
 		$this->load->view('other');
