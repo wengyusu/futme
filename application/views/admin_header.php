@@ -5,7 +5,7 @@
 	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://localhost/css/bootstrap.min.css" media="screen">
-	<script src="http://localhost/js/jquery.min.js"></script>
+	<script src="http://localhost/newmeeting/uploads/jquery.min.js"></script>
 	<script src="http://localhost/js/bootstrap.min.js" charset="UTF-8"></script>
 	
 	<style>

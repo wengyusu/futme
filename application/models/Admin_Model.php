@@ -56,7 +56,7 @@ class Admin_model extends CI_Model {
 		$query = $this->db->select('*')->from($table)
         ->where($column, $data)
 		->get();
-		return $query->result();	
+		return $query->row_array();	
 	}
 	
 	function schooladd($school){
@@ -75,7 +75,8 @@ class Admin_model extends CI_Model {
 	}
 	
 		function joineradd($name,$school_id){
-		$this->db->set(array('username'=>$name,'school_id'=>$school_id))->insert('joiner');
+		$query=$this->db->set(array('username'=>$name,'school_id'=>$school_id))->insert('joiner');
+		return $query;
 	}
 	
 	function getuser(){
@@ -88,7 +89,10 @@ class Admin_model extends CI_Model {
 		$this->db->set(array('lock'=>0,'other'=>0,'login_time'=>NULL))->update('joiner');
 	}
 	
-		function dateadd($date){
-		$this->db->set('content', $date)->where('name','start_time')->update('config');
+	function dateadd($date){
+		$query = $this->db->set('content', $date)->where('name','start_time')->update('config');
+		return $query;
 	}
+	
+
 }

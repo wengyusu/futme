@@ -200,8 +200,11 @@ class Check extends CI_Controller {
 				}
 				else{
 					$this->load->model('Admin_Model');	
-					$this->Admin_Model->joineradd($name,$school_id);	
-					redirect('/admin');		
+					$result=$this->Admin_Model->joineradd($name,$school_id);
+					if($result){
+						redirect('/admin');	
+					}
+						
 				}
 			}
 		}
@@ -221,7 +224,9 @@ class Check extends CI_Controller {
 				$date = strtotime($date);
 				$this->load->model('Admin_Model');
 				$this->Admin_Model->dateadd($date);
-				redirect('/admin');
+				if($this->Admin_Model->dateadd($date)){
+					redirect('/admin');
+				}
 			}
 			}
 		}
@@ -236,8 +241,9 @@ class Check extends CI_Controller {
 				$this->view($data,'upload');
 			}
 			else{
-				$config['upload_path']      = 'http://localhost/uploads/';
-				$config['allowed_types']    = 'txt|gif|jpg|jpeg|jpe|png';
+				$config['upload_path']      = './uploads/';
+				$config['allowed_types']    = 'xls|xlsx';
+				$config['file_name'] = time();
 				$this->load->library('upload', $config);
 				if ( !$this->upload->do_upload('userfile')){
 						$data['uploaderror'] = '格式错误';
@@ -245,16 +251,59 @@ class Check extends CI_Controller {
 				}
 				else{
 					$extension=$this->upload->data('file_ext');
-					$filename=$this->upload->data('full_path');
-					echo $filename;
-					//$this->read_excel($filename, $extension);
+					$filename=$this->upload->data('full_path');					
+					$this->read_excel($filename, $extension);
+					redirect('/admin');
 				}
 			}
 		}
 	}
 	
 	private function read_excel($filename,$extension){
-		
+		require("./././Class/PHPExcel.php");
+		$PHPExcel = new PHPExcel();
+		if($extension == '.xls'){
+			require("./././Class/PHPExcel/Reader/Excel5.php");
+			$PHPReader = new PHPExcel_Reader_Excel5();
+		}
+		elseif($extension == '.xlsx'){
+			require("./././Class/PHPExcel/Reader/Excel2007.php");
+			$PHPReader = new PHPExcel_Reader_Excel2007();
+		}
+		//读取excel文件
+		$PHPExcel = $PHPReader->load($filename);
+		//获取Sheet0中的数据
+		$currentSheet = $PHPExcel->getSheet(0);
+		//获取行数、列数
+		$allColumn = $currentSheet->getHighestColumn();
+		$allRow = $currentSheet->getHighestRow();
+		//循环遍历excel表格，重点是getCell和getValue方法
+		for($currentRow = 1; $currentRow <= $allRow; $currentRow++){
+			for($currentColumn = 'A'; $currentColumn <= $allColumn; $currentColumn++){
+				$address = $currentColumn . $currentRow;
+				$data[$currentRow][$currentColumn] = $currentSheet->getCell($address)->getValue();
+			}
+		}
+		//循环所得数据插入数据库，至于从2开始嘛，执行var_dump($data)你就懂了
+		//echo "<pre>";
+		// var_dump($data);die;
+		$this->load->model('Admin_Model');
+					
+		for ($i=2; $i <= count($data); $i++) {
+			$school = $data[$i]['A'];
+
+			$find=$this->Admin_Model->check($school,'school','school');
+
+			if(!empty($find)){
+				$school_id = $find['id'];
+			}else{
+				$school_id = $this->Admin_Model->schooladd($school);
+			}
+
+			$name=$data[$i]['B'];
+			$this->Admin_Model->joineradd($name,$school_id);		
+		}
+			redirect('/admin');
 	}
 	
 	private function view($data,$view){

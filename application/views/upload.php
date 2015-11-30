@@ -25,7 +25,6 @@
     <div class="col-md-offset-4 col-md-4">
       <button type="submit" class="btn btn-default" name="submit" value="session">Upload</button>
     </div>
-  </div>
 </form>
 </div>
 </div>
