@@ -27,4 +27,6 @@
     </div>
 </form>
 </div>
+<h4 class="col-md-offset-4 col-md-4">格式</h4>
+<img src="http://localhost/newmeeting/img/example.png" class="col-md-offset-4 col-md-4"></img>
 </div>

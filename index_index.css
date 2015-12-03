@@ -1,0 +1,197 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+html{
+	height: 100%;
+}
+body{
+	background-size: 100% 100%;
+	background-image: url(img/back.jpg);
+	background-repeat: no-repeat;
+	height: 100%;
+
+}
+.container{
+	border-radius: 5px;
+	height: 100%;
+	width: 100%;
+/*	border: 2px solid;*/
+}
+.container .head{
+	height: 60%;
+	width:  90%;
+	/*background-color: #666;*/
+	margin-top: 10%;
+	margin-left: auto;
+	margin-right: auto;
+
+	/*border-radius: 10px;*/
+	background-size: 100% 100%;
+	background-image: url(img/page1.jpg);
+	background-repeat: no-repeat;	
+}
+
+
+#pen{
+	background-color: #21a318;
+	background-image: url(img/pen.png);
+	background-repeat: no-repeat;
+	background-size: 50% 50%;
+	background-position: center center;
+	border-radius: 50%;
+	width: 3em;
+	height: 3em;
+	margin-left: -1.5em;
+	margin-top: -0.5em;
+	display: inline-block;
+	float: left;
+	border-radius: 2.5em;
+	font-weight: bold;
+}
+.container h1{
+	background-color: #4bff53;
+	color: #ffffff;
+	width: 90%;
+	opacity: 0.6;
+	padding:5px 10px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 50px;
+	text-align: center;
+	font-size: 17px;
+	font-family: cursive;
+	position: relative;
+}
+
+.container .choose{
+	background-color: #d6d4d1;
+	height: 20%;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 2px;
+}
+.choose input{
+	margin: 4% 10%;
+	height: 2.5em;
+	width: 100%;
+}
+.school i{
+	background-image: url(img/coin.png);
+	display: inline-block;
+}
+button{
+
+	
+	background-color: #d6d4d1;
+	color: #fff;
+	padding: 10px;
+	width: 30%;
+	border-radius: 50px;
+}
+.bt{
+	margin-top: -22%;
+	width: 100%;
+	color: #fff;
+	margin-right: auto;
+	font-weight: bolder;
+	font-size: 1.5em;
+	margin-left: 20%;
+	position: relative;
+}
+.success{
+	display: none;
+	background-color: #bdbdbd;
+	height: 20%;
+	width: 30%;
+	padding: 10% auto;
+	text-align: center;
+	margin-left: 60%;
+	margin-top: -110%;
+	position: absolute;
+}
+.success h1{
+	font-weight: bolder;
+}
+.success p{
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+@media screen and (max-height: 480px){
+.container .choose{
+	background-color: #d6d4d1;
+	height: 20%;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 2px;
+}
+.choose input{
+	margin: 2% 10%;
+	height: 2.5em;
+	width: 100%;
+}
+button{
+
+	
+	background-color: #d6d4d1;
+	color: #fff;
+	padding: 5px;
+	width: 30%;
+	border-radius: 50px;
+	margin-left: 20%;
+}
+.bt{
+	margin-top: -20%;
+	width: 100%;
+	color: #fff;
+	margin-right: auto;
+	font-weight: bolder;
+	font-size: 1.5em;
+	margin-left: 20%;
+	position: relative;
+}
+.container h1{
+	background-color: #4bff53;
+	color: #ffffff;
+	width: 90%;
+	opacity: 0.6;
+	padding:5px 10px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 50px;
+	text-align: center;
+	font-size: 12px;
+	font-family: cursive;
+	position: relative;
+}
+} 
+@media screen and (min-width:374px){
+	
+}
+@media screen and (min-height: 800px){
+	button{
+
+	
+	background-color: #d6d4d1;
+	color: #fff;
+	padding: 5px;
+	width: 30%;
+	border-radius: 50px;
+	margin-left: 20%;
+}
+.bt{
+	margin-top: -15%;
+	width: 100%;
+	color: #fff;
+	margin-right: auto;
+	font-weight: bolder;
+	font-size: 1.5em;
+	margin-left: 20%;
+	position: relative;
+}
+}

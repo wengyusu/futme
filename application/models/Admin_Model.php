@@ -61,10 +61,15 @@ class Admin_model extends CI_Model {
 	
 	function schooladd($school){
 		$this->db->set('school', $school)->insert('school');
+		$query = $this->db->select('*')->from('school')
+        ->where('school', $school)
+		->get();
+		$result = $query->row_array();
+		return $result['id'];	
 	}
 	
 	function getschool(){
-		$query = $this->db->select('school,order_num,id')->from('school')
+		$query = $this->db->select('*')->from('school')
 		->get();
 		foreach ($query->result_array() as $row){
 			$i=intval($row['order_num']);
@@ -90,9 +95,50 @@ class Admin_model extends CI_Model {
 	}
 	
 	function dateadd($date){
-		$query = $this->db->set('content', $date)->where('name','start_time')->update('config');
+		$this->db->set('content',$date)->where('name','start_time')->update('config');
+		
+	}
+	
+	function joinercount(){
+		$query = $this->db->count_all_results('joiner');
 		return $query;
 	}
 	
+	function getjoiner(){
+		$query = $this->db->select('*')->from('joiner')
+		->get();
+		return $query->result_array();
+	}
+	
+	function getjointime(){
+		$query = $this->db->select('*')->from('config')
+        ->where('name', 'start_time')
+		->get();
+		$result=$query->row_array();
+		return $result['content'];	
+	}
+	
+	function gainjoiner($data){
+		$query = $this->db->select('*')->from('joiner')
+        ->where('time', strval($data))
+		->get();
+		return $query->result_array();
+	}
+	
+	function alter(){
+		$query = $this->db->select('*')->from('config')
+        ->where('name', 'switch')
+		->get();
+		$result=$query->row_array();
+		if($result['content']=='on'){
+			$result['content']='off';
+			$this->db->set('content',$result['content'])->where('name','switch')->update('config');
+		}
+		else{
+			$result['content']='on';
+			$this->db->set('content',$result['content'])->where('name','switch')->update('config');
+		}
+		
+	}
 
 }

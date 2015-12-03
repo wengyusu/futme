@@ -6,7 +6,7 @@ class Check extends CI_Controller {
         parent::__construct();
 		$this->load->library('session');
 		$this->load->helper('url');
-		
+		date_default_timezone_set('prc');
     }
 
     public function index()
@@ -21,23 +21,23 @@ class Check extends CI_Controller {
 		$code2 = strtolower($this->session->userdata('code'));
 		$data['usererror'] = $data['codeerror'] = $data['requireerror'] = '';
 		if(strtolower($code) != $code2){
-		$data['codeerror'] = '验证码错误';
+		$data['codeerror'] = "<span class='label label-warning'>验证码错误</span>";
 		$this->load->view('login',$data);
 		}
 		else{
 			 if ($this->form_validation->run('login') == FALSE){
-						$data['requireerror'] = '用户名或密码不能为空';
+						$data['requireerror'] = "<span class='label label-warning'>用户名或密码不能为空</span>";
 						$this->load->view('login',$data);
 			 }
 			else{
 					$this->load->model('Admin_Model');
 					$result=$this->Admin_Model->logincheck($username,$password);
 					if(empty($result)){
-						$data['usererror'] = '用户名或密码错误';
+						$data['usererror'] = "<span class='label label-warning'>用户名或密码错误</span>";
 						$this->load->view('login',$data);
 					}
 				else{
-					$time = $_SERVER['REQUEST_TIME']+28800; 
+					$time = $_SERVER['REQUEST_TIME']; 
 					$ip=$_SERVER['REMOTE_ADDR'];
 					$this->load->model('Admin_Model');
 					$result=$this->Admin_Model->getdetail($username);
@@ -48,9 +48,7 @@ class Check extends CI_Controller {
 					$_SESSION['auth']=intval($result->lock);
 
 					echo $_SESSION['username'];
-					echo "&nbsp;&nbsp;&nbsp;&nbsp;上次登录IP：$_SESSION[ip]";
-					echo "&nbsp;&nbsp;&nbsp;&nbsp;上次登录时间：";
-					echo date('Y-m-d H:i:s',$_SESSION['time']);
+
 					$this->Admin_Model->detailinsert($username,$ip,$time);
 					
 					redirect('/admin');
@@ -72,20 +70,20 @@ class Check extends CI_Controller {
 		$data['passerror'] = $data['codeerror'] = $data['requireerror'] = $data['conferror'] = '';
 		$this->load->library('form_validation');
 		if ($this->form_validation->run('passchange') == FALSE){
-						$data['requireerror'] = '密码不能为空';
+						$data['requireerror'] = "<span class='label label-warning'>密码不能为空</span>";
 						$this->view($data,'passchange');
 		}
 		else{
 		if(strtolower($code) != $code2){
-		$data['codeerror'] = '验证码错误';
-		$this->view($data.'passchange');
+		$data['codeerror'] = "<span class='label label-warning'>验证码错误</span>";
+		$this->view($data,'passchange');
 		}
 		else{
 		if($newpassword==$passwordconf){	
 		$this->load->model('Admin_Model');
 		$result=$this->Admin_Model->passcheck($username,$password);
 		if(empty($result)){
-			$data['passerror'] = '原密码不正确';
+			$data['passerror'] = "<span class='label label-warning'>原密码不正确</span>";
 			$this->view($data,'passchange');
 					}
 		else{
@@ -95,7 +93,7 @@ class Check extends CI_Controller {
 		}
 		}
 		else{
-		$data['conferror'] = '密码不一致';
+		$data['conferror'] = "<span class='label label-warning'>密码不一致</span>";
 		$this->view($data,'passchange');
 		}
 		    }
@@ -114,17 +112,17 @@ class Check extends CI_Controller {
 			$code2 = strtolower($this->session->userdata('code'));
 			$this->load->library('form_validation');
 			if ($this->form_validation->run('add') == FALSE){
-						$data['requireerror'] = '用户名或密码不能为空';
+						$data['requireerror'] = "<span class='label label-warning'>用户名或密码不能为空</span>";
 						$this->view($data,'add');
 		}
 		else{
 				if(strtolower($code) != $code2){
-					$data['codeerror'] = '验证码错误';
+					$data['codeerror'] = "<span class='label label-warning'>验证码错误</span>";
 					$this->view($data,'add');
 				}
 				else{
 			if($password!=$passwordconf){
-		$data['conferror'] = '密码不一致';
+		$data['conferror'] = "<span class='label label-warning'>密码不一致</span>";
 		$this->view($data,'add');
 		}
 			else{
@@ -138,7 +136,7 @@ class Check extends CI_Controller {
 					
 				}
 				else{
-					$data['repeaterror']='用户名已存在';
+					$data['repeaterror']="<span class='label label-warning'>用户名已存在</span>";
 					$this->view($data,'add');
 				}
 				}
@@ -155,12 +153,12 @@ class Check extends CI_Controller {
 			$code2 = strtolower($this->session->userdata('code'));
 			$this->load->library('form_validation');
 			if ($this->form_validation->run('schooladd') == FALSE){
-				$data['requireerror'] = '名称不能为空';
+				$data['requireerror'] = "<span class='label label-warning'>名称不能为空</span>";
 				$this->view($data,'schooladd');
 			}
 			else{
 				if(strtolower($code) != $code2){
-					$data['codeerror'] = '验证码错误';
+					$data['codeerror'] = "<span class='label label-warning'>验证码错误</span>";
 					$this->view($data,'schooladd');
 				}
 				else{
@@ -171,7 +169,7 @@ class Check extends CI_Controller {
 						redirect('/admin');		
 				}
 				else{
-					$data['repeaterror']='单位重复';
+					$data['repeaterror']="<span class='label label-warning'>单位重复</span>";
 					$this->view($data,'schooladd');
 				}
 				}
@@ -190,12 +188,12 @@ class Check extends CI_Controller {
 			$code2 = strtolower($this->session->userdata('code'));
 			$this->load->library('form_validation');
 			if ($this->form_validation->run('joineradd') == FALSE){
-				$data['requireerror'] = '名称不能为空';
+				$data['requireerror'] = "<span class='label label-warning'>名称不能为空</span>";
 				$this->view($data,'joineradd');
 			}
 			else{
 				if(strtolower($code) != $code2){
-					$data['codeerror'] = '验证码错误';
+					$data['codeerror'] = "<span class='label label-warning'>验证码错误</span>";
 					$this->view($data,'joineradd');
 				}
 				else{
@@ -213,21 +211,14 @@ class Check extends CI_Controller {
 	public function timeselect(){
 		if(isset($_POST) && isset($_POST['submit']) && isset($_SESSION['username'])){
 			$data['codeerror'] = '';
+			$this->load->model('Admin_Model');
+			$data['time']=$this->Admin_Model->getjointime();
 			$date=$this->input->post('date');
-			$code = $this->input->post('code');
-			$code2 = strtolower($this->session->userdata('code'));
-			if(strtolower($code) != $code2){
-				$data['code']='验证码错误';
-				$this->view($data,'settime');
-			}
-			else{
-				$date = strtotime($date);
-				$this->load->model('Admin_Model');
-				$this->Admin_Model->dateadd($date);
-				if($this->Admin_Model->dateadd($date)){
-					redirect('/admin');
-				}
-			}
+			$date = strtotime($date);
+				//echo $date; die;
+			$this->load->model('Admin_Model');
+			$this->Admin_Model->dateadd($date);
+			redirect('/admin/settime');
 			}
 		}
 	
@@ -237,7 +228,7 @@ class Check extends CI_Controller {
 			$code = $this->input->post('code');
 			$code2 = strtolower($this->session->userdata('code'));
 			if(strtolower($code) != $code2){
-				$data['codeerror']='验证码错误';
+				$data['codeerror']="<span class='label label-warning'>验证码错误</span>";
 				$this->view($data,'upload');
 			}
 			else{
@@ -246,7 +237,7 @@ class Check extends CI_Controller {
 				$config['file_name'] = time();
 				$this->load->library('upload', $config);
 				if ( !$this->upload->do_upload('userfile')){
-						$data['uploaderror'] = '格式错误';
+						$data['uploaderror'] = "<span class='label label-warning'>格式错误</span>";
 						$this->view($data,'upload');
 				}
 				else{
