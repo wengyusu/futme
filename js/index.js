@@ -20,8 +20,8 @@ function scList(){
 			for(var i=0;i<choice.length;i++){
 				var schoolData;
 				choice[i].onclick = function(){
-					sc.getElementsByTagName('input')[0].innerHTML = choice[i].value;
-					ajax('http://localhost/index.php/meeting/getname',choice[i].value,displayName);                                //发送学校的名字到学校对应的URL，返回对应的姓名
+					sc.getElementsByTagName('input')[0].value = this.firstChild.nodeValue;
+					ajax(url,this.firstChild.nodeValue,displayName);                                //发送学校的名字到学校对应的URL，返回对应的姓名
 					display();
 				}	
 			}
@@ -71,8 +71,8 @@ function loadSchool(data){
 	for(var i=0;i<choice.length;i++){
 				var schoolData;
 				choice[i].click = function(){
-					sc.getElementsByTagName('input')[0].innerHTML = choice[i].value;
-					ajax(url,choice[i].value,displayName);                                //发送选中的内容到学校对应的URL，返回对应的姓名
+					sc.getElementsByTagName('input')[0].innerHTML = this.firstChild.nodeValue;
+					ajax(url,this.firstChild.nodeValue,displayName);                                //发送选中的内容到学校对应的URL，返回对应的姓名
 					display();
 				}	
 			}
