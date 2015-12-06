@@ -16,12 +16,14 @@
 			<h1><span id="pen"></span>2016届毕业生秋季双选会<br/>签到系统</h1>
 		</div>
 		<div class="choose">
+		<form>
 			<div id="school">
-				<i></i><input type="text" style="width:80%" placeholder="请选择您的学校" readonly="readonly">
+				<i></i><input type="text" style="width:80%" placeholder="请选择您的学校" readonly="readonly" class="form-control">
 			</div>
 			<div id="name">
-				<i></i><input type="text" style="width:80%" placeholder="请输入您的姓名" readonly="readonly">
+				<i></i><input type="text" style="width:80%" placeholder="请输入您的姓名" readonly="readonly" class="form-control">
 			</div>
+			</form>
 		</div>
 	</div>
 
