@@ -26,6 +26,7 @@ function scList(){
 				
 				var li = document.createElement('li');
 				li.innerHTML = data[i].school;
+				li.className="btn btn-default btn-block";
 				schoolChoise.appendChild(li);
 
 	
@@ -69,6 +70,7 @@ function displayName(data){
 				for(var i=0;i<data.length;i++){
 				var li = document.createElement('li');
 				li.innerHTML = data[i].name;
+				li.className="btn btn-default btn-block";
 				schoolChoise.appendChild(li);
 				error.innerHTML="";
 				var choice = document.getElementsByTagName('li');
@@ -117,6 +119,7 @@ function loadSchool(data){
 			var li = document.createElement('li');
 			li.innerHTML = data[i].school;
 			schoolChoise.appendChild(li);
+			li.className="btn btn-default btn-block";
 			error.innerHTML="";
 		}
 	}else{
@@ -216,6 +219,7 @@ function check(data){
 }
 
 window.onload = scList;
+document.getElementsByTagName('li').className='btn';
 //window.onload = displayName;
 //document.getElementById('bt1').onclick = postList(1);
 //document.getElementById('bt2').onclick = postList(0);

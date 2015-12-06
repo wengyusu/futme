@@ -38,7 +38,7 @@
 				<input id="list" placeholder="快速搜索" style="width:100%">
 				<span></span>
 			</div>	
-			<ul>
+			<ul class="list-group">
 			</ul>>
 		</div>
 	</div>
