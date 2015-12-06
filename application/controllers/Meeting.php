@@ -111,6 +111,24 @@ class Meeting extends CI_Controller {
 		echo $this->json_encode_ex($json);
 	}
 
+	public function examine(){
+		$name=file_get_contents("php://input"); 
+		$this->load->model('Meeting_Model');
+		$result=$this->Meeting_Model->examine($name);
+				if(!empty($result)){
+				$t['name']='';
+				$t['school']='';
+				$t['time']=$result['time'];
+				$json[0]=$t;
+		}
+			else{
+				$json[0]['name']='';
+				$json[0]['school']='';
+				$json[0]['time']='0';
+			} 
+		echo $this->json_encode_ex($json);
+	}
+
 	private function json_encode_ex($value)
 {
     if (version_compare(PHP_VERSION,'5.4.0','<'))

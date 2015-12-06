@@ -31,7 +31,7 @@ function scList(){
 
 	
 			}
-						var choice = document.getElementsByTagName('li');
+			var choice = document.getElementsByTagName('li');
 			for(var i=0;i<choice.length;i++){
 				choice[i].onclick = function(){
 				//alert(1);
@@ -80,6 +80,18 @@ function displayName(data){
 					nm.getElementsByTagName('input')[0].value = this.firstChild.nodeValue;
 				}
 					display();
+					ajax('http://localhost/newmeeting/index.php/meeting/examine','this.firstChild.nodeValue',
+						function(data){
+							var data = JSON.parse(data);
+							if(data[0].time=='0'){
+								var own = document.getElementById('bt1');
+								var other = document.getElementById('bt2');
+								own.style.display='none';
+								other.style.display='none';
+								alert('您已签到!');
+
+							}
+						});
 					/*if(data[i].time=1){
 						own.style.display='none';
 						other.style.display='none';
@@ -204,12 +216,16 @@ function check(data){
 	data = JSON.parse(data);
 		               //签到时间
 	if(data[0].time>0){ 
-		//own.style.width="80%";
-		//own.style.backgroundColor="#46b3f1";
+		own.style.width="80%";
+		own.style.backgroundColor="#46b3f1";
 		other.style.display='none';
-		//own.innerHTML="查看会务信息";
-		own.style.display='none';
-		alert('已签到');
+		own.removeAttribute('onclick');
+		own.innerHTML="查看会务信息";
+		//own.style.display='none';
+		own.onclick=function()
+{
+window.location.href="http://localhost/newmeeting/";
+}
 
 	}else{
 		own.style.backgroundColor="#46b3f1";

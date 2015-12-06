@@ -91,7 +91,7 @@ class Admin_model extends CI_Model {
 	}
 	
 	function clear(){
-		$this->db->set(array('lock'=>0,'other'=>0,'login_time'=>NULL))->update('joiner');
+		$this->db->set(array('lock'=>0,'other'=>0,time=>'0','login_time'=>NULL))->update('joiner');
 	}
 	
 	function dateadd($date){

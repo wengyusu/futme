@@ -44,5 +44,10 @@ class Meeting_Model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function examine($name){
+		$query=$this->db->select('time')->from('joiner')->where('username',$name)->get();
+		return $query->row_array();
+	}
+
 }
 ?>
