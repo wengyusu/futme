@@ -26,7 +26,7 @@ function scList(){
 				
 				var li = document.createElement('li');
 				li.innerHTML = data[i].school;
-				li.className="btn btn-default btn-block";
+				//li.className="btn btn-default btn-block";
 				schoolChoise.appendChild(li);
 
 	
@@ -60,8 +60,10 @@ function displayName(data){
 	var data = JSON.parse(data);
 	var schoolChoise = document.getElementById('modelContent').getElementsByTagName('ul')[0];
 	var error = document.getElementById('modelContent').getElementsByTagName('span')[1];
+	nm.getElementsByTagName('input')[0].value='';
 	nm.onclick = function(){
 			schoolChoise.innerHTML = "";
+
 			this.getElementsByTagName('input')[0].disabled = "disabled";
 			document.getElementById('modalMask').style.display = 'block';
 			document.getElementById('chooseSchool').style.display = 'block';
@@ -70,7 +72,7 @@ function displayName(data){
 				for(var i=0;i<data.length;i++){
 				var li = document.createElement('li');
 				li.innerHTML = data[i].name;
-				li.className="btn btn-default btn-block";
+				//li.className="btn btn-default btn-block";
 				schoolChoise.appendChild(li);
 				error.innerHTML="";
 				var choice = document.getElementsByTagName('li');
@@ -83,18 +85,8 @@ function displayName(data){
 					ajax('http://localhost/newmeeting/index.php/meeting/examine','this.firstChild.nodeValue',
 						function(data){
 							var data = JSON.parse(data);
-							if(data[0].time=='0'){
-								var own = document.getElementById('bt1');
-								var other = document.getElementById('bt2');
-								own.style.width="80%";
-								own.style.backgroundColor="#46b3f1";
-								other.style.display='none';
-								own.removeAttribute('onclick');
-								own.innerHTML="查看会务信息";
-								own.onclick=function()
-								{
-									window.location.href="http://localhost/newmeeting/index.php/meeting/other";
-								}
+							if(data[0].time=='1'){
+								alert('已签到');
 							}
 						});
 					/*if(data[i].time=1){
@@ -136,7 +128,7 @@ function loadSchool(data){
 			var li = document.createElement('li');
 			li.innerHTML = data[i].school;
 			schoolChoise.appendChild(li);
-			li.className="btn btn-default btn-block";
+			//li.className="btn btn-default btn-block";
 			error.innerHTML="";
 		}
 	}else{
@@ -240,7 +232,7 @@ window.location.href="http://localhost/newmeeting/index.php/other";
 }
 
 window.onload = scList;
-document.getElementsByTagName('li').className='btn';
+//document.getElementsByTagName('li').className='btn';
 //window.onload = displayName;
 //document.getElementById('bt1').onclick = postList(1);
 //document.getElementById('bt2').onclick = postList(0);

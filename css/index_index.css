@@ -1,6 +1,10 @@
 *{
-	margin: 0px;
-	padding: 0px;
+margin: 0px;
+padding: 0px;
+border: medium none;
+text-decoration: none;
+background: transparent none repeat scroll 0% 0%;
+font-family: "微软雅黑","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 html{
 	height: 100%;
@@ -124,21 +128,23 @@ button{
 	position: absolute;
 	background-color: #fff;
 	height: 82%;
-	width:  84%;
 	top: 5%;
 	padding: 200px auto;
-	margin-left: 8%;
 	border-radius: 5px 5px 0 0;
 	z-index: 1000;
 }
 
+#modelContent{
+height: 467px;
+width: 355px;
+	}
+
 #modelContent h2{
 	background-color: #62aefc;
-	height: 32%;
 	width: 100%;
 	color: #fff;
 	margin-top: 0;
-	padding: 25px 0;
+	padding: 5px 0;
 	font-size: 223%;
 	line-height: 200%;
 	font-family: Microsoft YaHei;
@@ -159,13 +165,23 @@ button{
 	height: 2.5em;
 	background-color: #f4f4f4;
 }
+
+ul{
+	height: 62%;
+	overflow-y: scroll;
+}
+
+li:first-child {
+    margin-top: 2px;
+}
+
 #modelContent li{
 	background-color: #fff;
-	font-size: 2em;
-	list-style: none;
+	font-size: 1.2em;
+	list-style: outside none none;
 	font-style: Microsoft YaHei;
 	font-weight: bold;
-	border: 2px #cfcfcf solid;
+	border-top: 1px solid #DEDEDE;
 
 }
 #modalMask{

@@ -18,10 +18,10 @@
 		<div class="choose">
 		<form>
 			<div id="school">
-				<i></i><input type="text" style="width:80%" placeholder="请选择您的学校" readonly="readonly" class="form-control">
+				<i></i><input type="text" style="width:80%" placeholder="请选择您的学校" readonly="readonly">
 			</div>
 			<div id="name">
-				<i></i><input type="text" style="width:80%" placeholder="请输入您的姓名" readonly="readonly" class="form-control">
+				<i></i><input type="text" style="width:80%" placeholder="请输入您的姓名" readonly="readonly">
 			</div>
 			</form>
 		</div>
@@ -32,7 +32,7 @@
 		<button id='bt2' onclick = postList(0)>代签</button>
 	</div>
 	<div id="modalMask"></div>
-	<div id ="chooseSchool">
+	<div id ="chooseSchool" class="col-md-offset-4">
 		
 		<div id="modelContent">
 			<h2><span>&lt;&lt;返回</span>选择</h2>
@@ -40,7 +40,7 @@
 				<input id="list" placeholder="快速搜索" style="width:100%">
 				<span></span>
 			</div>	
-			<ul class="list-group">
+			<ul>
 			</ul>>
 		</div>
 	</div>
