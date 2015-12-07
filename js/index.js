@@ -86,10 +86,15 @@ function displayName(data){
 							if(data[0].time=='0'){
 								var own = document.getElementById('bt1');
 								var other = document.getElementById('bt2');
-								own.style.display='none';
+								own.style.width="80%";
+								own.style.backgroundColor="#46b3f1";
 								other.style.display='none';
-								alert('您已签到!');
-
+								own.removeAttribute('onclick');
+								own.innerHTML="查看会务信息";
+								own.onclick=function()
+								{
+									window.location.href="http://localhost/newmeeting/index.php/meeting/other";
+								}
 							}
 						});
 					/*if(data[i].time=1){
@@ -224,7 +229,7 @@ function check(data){
 		//own.style.display='none';
 		own.onclick=function()
 {
-window.location.href="http://localhost/newmeeting/";
+window.location.href="http://localhost/newmeeting/index.php/other";
 }
 
 	}else{

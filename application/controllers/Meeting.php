@@ -5,15 +5,20 @@ class Meeting extends CI_Controller {
 		$this->load->model('Meeting_Model');
 		$result=$this->Meeting_Model->ifopen();
 		if($result['content']=='on'){
-			$this->load->model('Admin_Model');
+			/*$this->load->model('Admin_Model');
 			$school=$this->Admin_Model->getschool();
-			$data['school']=$school;
-			$this->load->view('index_index',$data);
+			$data['school']=$school;*/
+			$this->load->view('index_index');
 		}
 		elseif($result['content']=='off'){
 			echo "Close";
 		}
 	}
+
+	public function other(){
+		$this->load->view('index_other');
+	}
+
 	public function getschool(){
 		$this->load->model('Meeting_Model');
 		$result=$this->Meeting_Model->getschool();

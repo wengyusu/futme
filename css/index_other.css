@@ -1,0 +1,103 @@
+*{
+	padding: 0 0;
+	margin: 0 0;
+}
+html{
+	height: 100%;
+	width: 100%;
+}
+body{
+	width: 100%;
+	height: 100%;
+}
+#heading{
+	width: 100%;
+	height: 45%;
+	background-color: #2e51c7;
+	background-image: url(http://localhost/newmeeting/img/page2.jpg); 
+	background-size: 100% 100%;
+	z-index: 0;
+}
+#mainContent{
+	position: absolute;
+	top: 40%;
+	background-color: rgba(33,160,219,0.8);
+	color: #fff;
+	height: 35%;
+	width: 100%;
+	z-index: 1;
+	overflow: hidden;
+}
+#mainContent p{
+	text-indent: 2em;
+	margin-top: 2.3em;
+	margin-left: 2%;
+	margin-right: 2%;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	overflow: hidden;
+}
+
+
+ul{
+	height: 30%;
+}
+ul li{
+	position: absolute;
+	background-image: url(http://localhost/newmeeting/img/coin05.png);
+	background-size: 220%;
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 25%;
+	padding-top: 22%;
+	top: 75%;
+	font-size: 1em;
+	margin-right: 3%;
+	text-align: center;
+	z-index: 0;
+}
+#schedule{
+	background-position: -20% 65%;
+	margin-left: 10%;
+	left: 0;
+}
+#map{
+	background-position: 50% 65%;
+	left: 38%;
+}
+#address{
+	background-position: 120% 65%;	
+	left: 65%;
+}
+#modelMask{
+	top: 0;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 1000;
+	background-color: rgba(153,153,153,0.5);
+	display: none;
+}
+
+#scheduleContent,#mapContent,#addressContent{
+	position: absolute;
+	top: 15%;
+	width: 80%;
+	height: 75%;
+	margin: 0 10%;
+	background-color: #fff;
+	z-index: 1001;
+	border-radius: 3em 3em 1em 1em;
+	display: none;
+}
+#scheduleContent h2,#mapContent h2,#addressContent h2{
+	background-color: #4ca2e4;
+	color: #fff;
+	padding-top: 3%;
+	padding-bottom: 5%;
+	border-radius: 10px 10px 0 0;
+	text-align: center;
+}
+#mapContent img{
+	width: 100%;
+}
