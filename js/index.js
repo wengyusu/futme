@@ -82,7 +82,7 @@ function displayName(data){
 					nm.getElementsByTagName('input')[0].value = this.firstChild.nodeValue;
 				}
 					display();
-					ajax('http://localhost/newmeeting/index.php/meeting/examine','this.firstChild.nodeValue',
+					ajax('http://localhost/newmeeting/index.php/meeting/examine',this.firstChild.nodeValue,
 						function(data){
 							var data = JSON.parse(data);
 							if(data[0].time=='1'){
