@@ -21,17 +21,13 @@ body{
 	border-radius: 5px;
 	height: 100%;
 	width: 100%;
-/*	border: 2px solid;*/
 }
 .container .head{
 	height: 60%;
 	width:  90%;
-	/*background-color: #666;*/
 	margin-top: 10%;
 	margin-left: auto;
 	margin-right: auto;
-
-	/*border-radius: 10px;*/
 	background-size: 100% 100%;
 	background-image: url(../img/page1.jpg);
 	background-repeat: no-repeat;	
@@ -105,46 +101,26 @@ button{
 	margin-left: 20%;
 	position: relative;
 }
-/*.success{
-	display: none;
-	background-color: #bdbdbd;
-	height: 20%;
-	width: 30%;
-	padding: 10% auto;
-	text-align: center;
-	margin-left: 60%;
-	margin-top: -110%;
-	position: absolute;
-}
-.success h1{
-	font-weight: bolder;
-}
-.success p{
-	font-size: 20px;
-	font-weight: bolder;
-}*/
+
 #chooseSchool{
 	display: none;
 	position: absolute;
 	background-color: #fff;
 	height: 82%;
+	width:  84%;
 	top: 5%;
 	padding: 200px auto;
+	margin-left: 8%;
 	border-radius: 5px 5px 0 0;
 	z-index: 1000;
 }
-
-#modelContent{
-height: 467px;
-width: 355px;
-	}
-
 #modelContent h2{
 	background-color: #62aefc;
+	height: 32%;
 	width: 100%;
 	color: #fff;
 	margin-top: 0;
-	padding: 5px 0;
+	padding: 25px 0;
 	font-size: 223%;
 	line-height: 200%;
 	font-family: Microsoft YaHei;
