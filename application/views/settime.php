@@ -1,7 +1,7 @@
 <?php $this->load->helper('form'); ?>
 <link rel="stylesheet" type="text/css" href="http://localhost/css/bootstrap-datetimepicker.css" media="screen"/ >
-<script src="../../../js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
-<script src="../../../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script src="../../js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script src="../../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
 <div align="center">当前会议时间：<?php if(isset($time)){echo date('Y-m-d H:i:s',$time);} ?></div>
 <div class="container">
 	<div class="panel panel-default col-md-8 col-md-offset-2">
