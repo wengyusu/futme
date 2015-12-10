@@ -8,10 +8,10 @@
 	<script src="http://localhost/newmeeting/js/jquery.min.js"></script>
 	<script src="http://localhost/newmeeting/js/bootstrap.min.js" charset="UTF-8"></script>
 	
-	<style>
+/*	<style>
 	.container {margin-top:10%;}
 	.leftContent {float:left;}
-	</style>
+	</style>*/
 	<title>签到系统后台管理系统</title>
 	<link rel="stylesheet" type="text/css" href="http://localhost/newmeeting/css/admin.css">
 </head>
