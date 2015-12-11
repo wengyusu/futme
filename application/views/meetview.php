@@ -1,5 +1,6 @@
 <div class="container">
-<canvas id="myChart" width="400" height="400"></canvas>
+<canvas id="myChart" width="300" height="300" class="col-md-offset-1"></canvas>
+<canvas id="myChart1" width="300" height="300" class="col-md-offset-1"></canvas>
 <div class="panel panel-default col-md-8 col-md-offset-1">
 <div class="panel-heading">签到情况预览</div>
 <table class="table table-hover ">
@@ -34,20 +35,33 @@ foreach ($data as $row){
 <script type="text/javascript">
 window.onload = function(){
 				var ctx = document.getElementById("myChart").getContext("2d");
-				window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
+				window.myDoughnut = new Chart(ctx).Doughnut(data);
+				var ctx1 = document.getElementById("myChart1").getContext("2d");
+				window.myDoughnut1 = new Chart(ctx1).Doughnut(data1);
 			};
 var data = [
 	{
-		value: 30,
-		color:"#F38630"
+		value: <?=$numyes?>,
+		color:"#F38630",
+		label:"已签到"
 	},
 	{
-		value : 50,
-		color : "#E0E4CC"
+		value : <?=$numall-$numyes?>,
+		color : "#69D2E7",
+		label:"未签到"
+	}			
+]
+
+var data1 = [
+	{
+		value: <?=$numlate?>,
+		color:"#56ce21",
+		label:"准时"
 	},
 	{
-		value : 100,
-		color : "#69D2E7"
+		value : <?=$numall-$numlate?>,
+		color : "#7f6000",
+		label:"迟到"
 	}			
 ]
 
