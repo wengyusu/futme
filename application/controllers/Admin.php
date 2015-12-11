@@ -206,16 +206,12 @@ class Admin extends CI_Controller {
 				$row['school_id'] = $school['school'];
 				if($row['time']=='0'){$row['time']='未签到';}
 				if($row['time']=='1'){$row['time']='已签到';}
-<<<<<<< HEAD
 				if($row['login_time']>$_SESSION['start_time'])
 					$row['late']='是';
 				else
 					$row['late']='';
 				if(!empty($row['login_time']))$row['login_time']=date('Y-m-d H:i:s',intval($row['login_time']));
 
-=======
-				if(!empty($row['login_time']))$row['login_time']=date('Y-m-d H:i:s',intval($row['login_time']));
->>>>>>> fa340523b5c99084dc38ac6e5372964666abb82f
 			}
 			//var_dump($data);
 			$this->load->view('admin_header');
