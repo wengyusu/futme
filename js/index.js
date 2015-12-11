@@ -87,6 +87,7 @@ function displayName(data){
 							var data = JSON.parse(data);
 							if(data[0].time=='1'){
 								alert('已签到');
+								window.location.href="http://localhost/newmeeting/index.php/meeting/other";
 							}
 						});
 					/*if(data[i].time=1){
@@ -179,7 +180,9 @@ function postList(judge){
 	var own = document.getElementById('bt1');
 	var other = document.getElementById('bt2');
 	var time = Date.parse(new Date());
+	time = time/1000;
 	var listData = nm.getElementsByTagName('input')[0].value+","+time+","+judge;
+
 	if(!sc.getElementsByTagName('input')[0].value||!nm.getElementsByTagName('input')[0].value){
 		alert("请选择您的学校");
 	}
@@ -190,6 +193,7 @@ function postList(judge){
 		if(judge==1){
 			ajax('http://localhost/newmeeting/index.php/meeting/submit',listData,function (data){
 			alert("签到");
+			//alert(time);
 			check(data);
 
 		});    
@@ -219,11 +223,7 @@ function check(data){
 		own.removeAttribute('onclick');
 		own.innerHTML="查看会务信息";
 		//own.style.display='none';
-		own.onclick=function()
-{
-window.location.href="http://localhost/newmeeting/index.php/other";
-}
-
+window.location.href="http://localhost/newmeeting/index.php/meeting/other";
 	}else{
 		own.style.backgroundColor="#46b3f1";
 		other.style.backgroundColor="#46b3f1";

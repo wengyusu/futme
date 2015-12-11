@@ -37,10 +37,10 @@ class Admin_model extends CI_Model {
 		return $query->result();
 	}
 	function getdetail($username){
-		$query = $this->db->select('login_time,login_ip')->from('user')
+		$query = $this->db->select('*')->from('user')
         ->where('username', $username)
 		->get();
-		return $query->row();
+		return $query->row_array();
 	}
 	function add($username,$password,$lock){
 		$data = array(

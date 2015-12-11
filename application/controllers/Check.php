@@ -313,8 +313,5 @@ class Check extends CI_Controller {
 		$this->session->set_userdata('code', $code);
 		$this->captcha->showImg();
  }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> fa340523b5c99084dc38ac6e5372964666abb82f
+

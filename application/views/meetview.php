@@ -31,7 +31,7 @@ foreach ($data as $row){
 </table>
 </div>
 </div>
-<script src="../../js/chart.min.js" charset="UTF-8"></script>
+<script src="<?=base_url('js/chart.min.js')?>" charset="UTF-8"></script>
 <script type="text/javascript">
 window.onload = function(){
 				var ctx = document.getElementById("myChart").getContext("2d");
@@ -41,12 +41,12 @@ window.onload = function(){
 			};
 var data = [
 	{
-		value: <?=$numyes?>,
+		value: <?=$numall-$numyes?>,
 		color:"#F38630",
 		label:"已签到"
 	},
 	{
-		value : <?=$numall-$numyes?>,
+		value : <?=$numyes?>,
 		color : "#69D2E7",
 		label:"未签到"
 	}			

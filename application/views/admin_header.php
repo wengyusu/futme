@@ -4,9 +4,9 @@
 		<meta charset="utf-8">
 	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="http://localhost/newmeeting/css/bootstrap.min.css" media="screen">
-	<script src="http://localhost/newmeeting/js/jquery.min.js"></script>
-	<script src="http://localhost/newmeeting/js/bootstrap.min.js" charset="UTF-8"></script>
+	<link rel="stylesheet" href="<?=base_url('css/bootstrap.min.css');?>" media="screen">
+	<script src="<?=base_url('js/jquery.min.js');?>"></script>
+	<script src="<?=base_url('js/bootstrap.min.js');?>" charset="UTF-8"></script>
 	
 	<style>
 	.container {
@@ -15,7 +15,7 @@
 	.leftContent {float:left;}
 	</style>
 	<title>签到系统后台管理系统</title>
-	<link rel="stylesheet" type="text/css" href="http://localhost/newmeeting/css/admin.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('css/admin.css');?>">
 </head>
 <?php $this->load->helper('url'); ?>
 <body>
@@ -26,7 +26,6 @@
 	<span><?php echo date('Y-m-d H:i:s',$_SESSION['time']); ?></span>
 	</br>
 		<img class="logo" src="http://localhost/newmeeting/img/logo.gif">
-
 		<ul class="fun nav nav-tabs">
 <?php  if ($_SESSION['auth']==='0'):  ?>
 			<li role="presentation"><a href="<?php echo site_url('admin/schooladd'); ?>">新增与会单位</a></li>

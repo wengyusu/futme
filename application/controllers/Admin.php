@@ -227,11 +227,15 @@ class Admin extends CI_Controller {
 	public function doview($time){
 		if(isset($_SESSION['username'])){
 			$this->load->model('Admin_Model');
+
+			$data['numyes']=$data['numlate']=0;
 			$data['data']=$this->Admin_Model->gainjoiner($time);
+			$data['numall']=count($data['data']);
 			foreach ($data['data'] as &$row){
 				$school = $this->Admin_Model->check($row['school_id'],'school','id');
 				$row['school_id'] = $school['school'];
-				if($row['time']=='0'){$row['time']='未签到';}
+				$row['late']='';
+				if($row['time']=='0'){$row['time']='未签到'; $data['numyes']++;}
 				if($row['time']=='1'){$row['time']='已签到';}
 				if(!empty($row['login_time'])){$row['login_time']=date('Y-m-d H:i:s',intval($row['login_time']));}
 			}

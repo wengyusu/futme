@@ -1,7 +1,6 @@
 <?php $this->load->helper('form'); ?>
-<link rel="stylesheet" type="text/css" href="http://localhost/css/bootstrap-datetimepicker.css" media="screen"/ >
-<script src="../../js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
-<script src="../../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css" href="<?=base_url('css/bootstrap-datetimepicker.css');?>" media="screen"/ >
+
 <div align="center">当前会议时间：<?php if(isset($time)){echo date('Y-m-d H:i:s',$time);} ?></div>
 <div class="container">
 	<div class="panel panel-default col-md-8 col-md-offset-2">
@@ -26,6 +25,8 @@
 </form>
 </div>
 </div>
+<script src="<?=base_url('js/bootstrap-datetimepicker.min.js');?>" charset="UTF-8"></script>
+<script src="<?=base_url('js/bootstrap-datetimepicker.zh-CN.js');?>" charset="UTF-8"></script>
 <script type="text/javascript">
     $('.form_datetime').datetimepicker({
 		//language: 'zh-CN',
