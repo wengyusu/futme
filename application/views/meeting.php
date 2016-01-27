@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1",maximum-scale=1,user-scalable=no>
 	<title>签到主界面</title>
-	<link rel="stylesheet" type="text/css" href="http://localhost/newmeeting/css/index_index.css">
-	<link rel="stylesheet" type="text/css" href="http://localhost/newmeeting/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="http://localhost/newmeeting/css/index_index.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="http://localhost/newmeeting/css/bootstrap.min.css"> -->
 
 </head>
 <body>

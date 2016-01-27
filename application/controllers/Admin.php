@@ -14,6 +14,9 @@ class Admin extends CI_Controller {
 			$this->login();
 		}
 		else{
+			$this->load->model('Admin_Model');
+			$_SESSION['yiqian']=count($this->Admin_Model->gainjoiner('1'));
+			$_SESSION['weiqian']=count($this->Admin_Model->gainjoiner('0'));
 			$this->load->view('admin_header');
 			$this->load->view('admin_footer');
 		}
